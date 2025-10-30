@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root { height: 100%; }
+body { background: #fafafa; }
+
+/* small helpers to mimic design */
+.card-shadow { box-shadow: 0 6px 18px rgba(0,0,0,0.06); }
