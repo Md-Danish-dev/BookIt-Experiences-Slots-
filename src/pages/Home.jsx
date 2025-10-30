@@ -19,19 +19,35 @@ export default function Home() {
     )
   }
 
-  useEffect(() => {
-    getExperiences().then(res => {
-      setExperiences(res.data)
-      setFiltered(res.data)
+  // useEffect(() => {
+  //   getExperiences().then(res => {
+  //     console.log("API response:", res.data);
+  //     setExperiences(res.data)
+  //     setFiltered(res.data)
 
-      const q = searchParams.get("search")
-      if (q) filter(q)
-    })
-  }, [])
+  //     const q = searchParams.get("search")
+  //     if (q) filter(q)
+  //   })
+  // }, [])
+
+
+  useEffect(() => {
+  getExperiences().then(res => {
+    console.log("API response data: ", res.data) // 👈 check this
+    setExperiences(res.data)
+    setFiltered(res.data)
+
+    const q = searchParams.get("search")
+    if (q) filter(q)
+  }).catch(err => {
+    console.error("API error:", err)
+  })
+}, [])
 
   return (
     <Layout onSearch={filter}>
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 px-6">
+        
         {filtered.map(exp => (
           <ExperienceCard key={exp._id} exp={exp} />
         ))}
