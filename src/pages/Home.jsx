@@ -1,28 +1,3 @@
-// import React, { useEffect, useState } from 'react'
-// import { getExperiences } from '../services/api'
-// import ExperienceCard from '../components/ExperienceCard'
-
-// export default function Home(){
-//   const [exps, setExps] = useState([])
-//   const [loading, setLoading] = useState(true)
-
-//   useEffect(()=>{
-//     getExperiences().then(r=>{ setExps(r.data) }).catch(console.error).finally(()=>setLoading(false))
-//   },[])
-
-//   if(loading) return <div className="p-8">Loading...</div>
-
-//   return (
-//     <div className="p-6 max-w-7xl mx-auto">
-//       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-//         {exps.map(e => <ExperienceCard key={e._id} exp={e} />)}
-//       </div>
-//     </div>
-//   )
-// }
-
-
-
 import React, { useEffect, useState } from "react"
 import { getExperiences } from "../services/api"
 import ExperienceCard from "../components/ExperienceCard"

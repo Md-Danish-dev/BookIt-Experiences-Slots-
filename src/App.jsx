@@ -9,8 +9,6 @@ import Layout from './pages/Layout'
 export default function App(){
   return (
     <Routes>
-      
-      
       <Route path="/" element={<Home/>} />
       <Route path="/experience/:id" element={<Details/>} />
       <Route path="/checkout" element={<Checkout/>} />

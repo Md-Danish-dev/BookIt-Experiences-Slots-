@@ -6,11 +6,10 @@ export default function Details() {
   const { id } = useParams();
   const nav = useNavigate();
 
-  // Hooks must always be declared in the same order
   const [exp, setExp] = useState(null);
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
-  const [quantity, setQuantity] = useState(1); // New hook for quantity
+  const [quantity, setQuantity] = useState(1); 
 
   useEffect(() => {
     getExperience(id)
@@ -24,7 +23,6 @@ export default function Details() {
   const times =
     (selectedDate && exp.slots?.[selectedDate]) || exp.slots?.default || [];
 
-  // Calculate subtotal, tax, and total
   const subtotal = exp.price * quantity;
   const tax = Math.round(subtotal * 0.06);
   const total = subtotal + tax;
@@ -67,23 +65,6 @@ export default function Details() {
             </div>
           </div>
 
-          {/* <div className="mt-6">
-            <h4 className="font-semibold">Choose time</h4>
-            <div className="flex gap-3 mt-3 flex-wrap">
-              {times.map((t) => (
-                <button
-                  key={t}
-                  onClick={() => setSelectedTime(t)}
-                  className={`px-4 py-2 rounded border ${
-                    selectedTime === t ? 'bg-brand' : ''
-                  }`}
-                >
-                  {t}
-                </button>
-              ))}
-            </div>
-          </div> */}
-
           <div className="mt-6">
             <h4 className="font-semibold">Choose time</h4>
             <div className="flex gap-3 mt-3 flex-wrap">
@@ -105,7 +86,6 @@ export default function Details() {
           </div>
         </div>
 
-        {/* PRICE CARD */}
         <div className="lg:col-span-1 bg-gray-50 rounded-2xl p-5 shadow-sm">
           <div className="space-y-4">
             <div className="flex justify-between text-gray-600 text-sm">
